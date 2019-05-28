@@ -7,34 +7,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import sbs.demo.util.DBUtil;
+
 /**
- * Servlet implementation class ArticleAddServlet
+ * Servlet implementation class ArticleAddReplyServlet
  */
-@WebServlet("/ArticleAddServlet")
+@WebServlet("/article/doAdd")
 public class ArticleAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public ArticleAddServlet() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+		
+		String title = request.getParameter("title");
+		String body = request.getParameter("body");
+		
+		String sql = "INSERT INTO article SET regDate=NOW(), title = '"+title+"', body = '"+body+"';";
+		
+		DBUtil.DBLink dbLink = DBUtil.getNewDbLink();
+		dbLink.executeQuery(sql);
+		dbLink.close();
+		
+		response.getWriter().append("<script>alert('게시물이 작성되었습니다.');</script>");
+		response.getWriter().append("<script>location.replace('./list.jsp');</script>");
 	}
-
 }
