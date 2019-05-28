@@ -7,34 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import sbs.demo.util.DBUtil;
+
 /**
  * Servlet implementation class ArticleDeleteServlet
  */
-@WebServlet("/ArticleDeleteServlet")
+@WebServlet("/article/doDelete")
 public class ArticleDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * Default constructor. 
-     */
-    public ArticleDeleteServlet() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		
+		String id = request.getParameter("id");
+		String sql = "DELETE FROM article WHERE id='"+id+"';";
+		
+		DBUtil.DBLink dbLink = DBUtil.getNewDbLink();
+		dbLink.executeQuery(sql);
+		dbLink.close();
+		
+		response.getWriter().append("<script>alert('"+id+"번 게시물을 삭제하였습니다.');</script>");
+		response.getWriter().append("<script>location.replace('./list.jsp');</script>");		
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

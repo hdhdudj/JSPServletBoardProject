@@ -27,9 +27,12 @@ public class ArticleAddServlet extends HttpServlet {
 		
 		DBUtil.DBLink dbLink = DBUtil.getNewDbLink();
 		dbLink.executeQuery(sql);
+		int id = dbLink.getRowIntValue("SELECT MAX(id) FROM article");
+		
+		
 		dbLink.close();
 		
 		response.getWriter().append("<script>alert('게시물이 작성되었습니다.');</script>");
-		response.getWriter().append("<script>location.replace('./list.jsp');</script>");
+		response.getWriter().append("<script>location.replace('./detail.jsp?id="+id+"');</script>");
 	}
 }

@@ -36,8 +36,12 @@ public class testDbLink extends HttpServlet {
     System.out.println("title : " + title);
 
     dbLink.executeQuery("INSERT INTO article SET regDate = NOW(), title = 'test 제목', body = 'test 내용';");
+    int id = dbLink.getLastInsertId();
     System.out.println(dbLink.getLastInsertId() + "번 글 추가됨");
 
+    dbLink.executeQuery("DELETE FROM article WHERE id="+id+";");
+    System.out.println(id + "번 글 삭제됨");
+    
     dbLink.close();
   }
 
