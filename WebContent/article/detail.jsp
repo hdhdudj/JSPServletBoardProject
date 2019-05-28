@@ -81,5 +81,13 @@
 		댓글이 없습니다.	
 <%	}
 		%>
+		<br>
+		<h3> 댓글 작성 </h3>
+		<form action="./doAddReply" method="POST">
+			<div>
+				<textarea type="text" name="body" placeholder="댓글 내용을 입력하세요"></textarea>
+			</div>
+			<button type="submit">제출</button><button type="reset">리셋</button>
+		</form>
 </body>
 </html>
