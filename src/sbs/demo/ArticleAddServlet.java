@@ -25,28 +25,28 @@ public class ArticleAddServlet extends HttpServlet {
 		String body = request.getParameter("body");
 		
 		if (title == null) {
-			response.getWriter().append("<script> alert('Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+			response.getWriter().append("<script> alert('ì œëª©ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.'); history.back(); </script>");
             return;
 		}
 
 		title = title.trim();
 
 		if (title.length() == 0) {
-			response.getWriter().append("<script> alert('Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+			response.getWriter().append("<script> alert('ì œëª©ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.'); history.back(); </script>");
             return;
 		}
 
 		title = title.replaceAll("\'", "\\\\'");
 		
 		if (body == null) {
-			response.getWriter().append("<script> alert('³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+			response.getWriter().append("<script> alert('ë‚´ìš©ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.'); history.back(); </script>");
             return;
 		}
 
 		body = body.trim();
 
 		if (body.length() == 0) {
-			response.getWriter().append("<script> alert('³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+			response.getWriter().append("<script> alert('ë‚´ìš©ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.'); history.back(); </script>");
             return;
 		}
 
@@ -61,7 +61,7 @@ public class ArticleAddServlet extends HttpServlet {
 		
 		dbLink.close();
 		
-		response.getWriter().append("<script>alert('°Ô½Ã¹°ÀÌ ÀÛ¼ºµÇ¾ú½À´Ï´Ù.');</script>");
+		response.getWriter().append("<script>alert('ê²Œì‹œë¬¼ì´ ì‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤.');</script>");
 		response.getWriter().append("<script>location.replace('./detail.jsp?id="+id+"');</script>");
 	}
 }

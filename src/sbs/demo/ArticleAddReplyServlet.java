@@ -24,6 +24,20 @@ public class ArticleAddReplyServlet extends HttpServlet {
 		String articleid = request.getParameter("id");
 		String body = request.getParameter("body");
 		
+		if (body == null) {
+			response.getWriter().append("<script> alert('내용을 작성해주세요.'); history.back(); </script>");
+            return;
+		}
+
+		body = body.trim();
+
+		if (body.length() == 0) {
+			response.getWriter().append("<script> alert('내용을 작성해주세요.'); history.back(); </script>");
+            return;
+		}
+
+		body = body.replaceAll("\'", "\\\\'");
+		
 		String sql = "INSERT INTO articleReply SET regDate=NOW(), body='"+body+"', articleId='"+articleid+"';";
 		
 		DBUtil.DBLink dbLink = DBUtil.getNewDbLink();
@@ -32,7 +46,7 @@ public class ArticleAddReplyServlet extends HttpServlet {
 		
 		dbLink.close();
 		
-		response.getWriter().append("<script>alert('����� �ۼ��Ǿ����ϴ�.');</script>");
+		response.getWriter().append("<script>alert('댓글이 작성되었습니다.');</script>");
 		response.getWriter().append("<script>location.replace('./detail.jsp?id="+articleid+"');</script>");
 	}
 }

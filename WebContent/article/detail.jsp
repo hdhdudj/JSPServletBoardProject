@@ -65,7 +65,7 @@ function disableEditMode(el) {
 </script>
 	<div>
 		<a href="./list.jsp">글 목록</a> <a href="./modify.jsp?id=<%=id%>">글
-			수정</a> <a href="./doDelete?id=<%=id%>">글 삭제</a>
+			수정</a> <a href="./doDelete?id=<%=id%>" onclick="return confirm('진짜로 삭제합니까?!');">글 삭제</a>
 	</div>
 	<br>
 	<div>
@@ -135,7 +135,7 @@ function disableEditMode(el) {
 					</td>
 					<td><a class="read-mode-visible" href="javascript:;"
 						onclick="enableEditMode(this);">수정</a> <a
-						href="./doDeleteReply?id=<%=articleReply.get("id")%>">삭제</a></td>
+						href="./doDeleteReply?id=<%=articleReply.get("id")%>" onclick="return confirm('진짜로 삭제합니까?!');">삭제</a></td>
 				</tr>
 				<%
 					}

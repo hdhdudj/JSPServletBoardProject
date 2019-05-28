@@ -34,7 +34,7 @@ public class ArticleDeleteReplyServlet extends HttpServlet {
 
         dbLink.close();
         
-        response.getWriter().append("<script>alert('´ñ±ÛÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.')</script>");
+        response.getWriter().append("<script>alert('ëŒ“ê¸€ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.')</script>");
         response.getWriter().append("<script>location.replace('./detail.jsp?id="+articleid+"')</script>");
 	}
 

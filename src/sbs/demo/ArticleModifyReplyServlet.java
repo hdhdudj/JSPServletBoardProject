@@ -29,14 +29,14 @@ public class ArticleModifyReplyServlet extends HttpServlet {
         String body = request.getParameter("body");
         
         if (body == null) {
-			response.getWriter().append("<script> alert('³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+			response.getWriter().append("<script> alert('ë‚´ìš©ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.'); history.back(); </script>");
             return;
 		}
 
 		body = body.trim();
 
 		if (body.length() == 0) {
-			response.getWriter().append("<script> alert('³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+			response.getWriter().append("<script> alert('ë‚´ìš©ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.'); history.back(); </script>");
             return;
 		}
 
@@ -46,7 +46,7 @@ public class ArticleModifyReplyServlet extends HttpServlet {
         String sql = "UPDATE articleReply SET body = '"+body+"' WHERE id='"+id+"';";
         dbLink.executeQuery(sql);
         
-        response.getWriter().append("<script>alert('´ñ±ÛÀÌ ¼öÁ¤µÇ¾ú½À´Ï´Ù.')</script>");
+        response.getWriter().append("<script>alert('ëŒ“ê¸€ì´ ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.')</script>");
         response.getWriter().append("<script>location.replace('./detail.jsp?id="+articleid+"')</script>");
 	}
 
