@@ -13,14 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ArticleModifyReplyServlet")
 public class ArticleModifyReplyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * Default constructor. 
-     */
-    public ArticleModifyReplyServlet() {
-        // TODO Auto-generated constructor stub
-    }
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
