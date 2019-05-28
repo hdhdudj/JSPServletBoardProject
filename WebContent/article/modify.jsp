@@ -11,6 +11,7 @@
 	Map<String, Object> article = dbLink.getRow(sql);
 %>
 <html>
+<title>게시물 수정</title>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>

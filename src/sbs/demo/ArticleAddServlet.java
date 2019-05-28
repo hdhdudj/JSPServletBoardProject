@@ -32,7 +32,7 @@ public class ArticleAddServlet extends HttpServlet {
 		
 		dbLink.close();
 		
-		response.getWriter().append("<script>alert('ê²Œì‹œë¬¼ì´ ì‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤.');</script>");
+		response.getWriter().append("<script>alert('°Ô½Ã¹°ÀÌ ÀÛ¼ºµÇ¾ú½À´Ï´Ù.');</script>");
 		response.getWriter().append("<script>location.replace('./detail.jsp?id="+id+"');</script>");
 	}
 }

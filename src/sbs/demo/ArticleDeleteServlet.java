@@ -26,7 +26,7 @@ public class ArticleDeleteServlet extends HttpServlet {
 		dbLink.executeQuery(sql);
 		dbLink.close();
 		
-		response.getWriter().append("<script>alert('"+id+"ë²ˆ ê²Œì‹œë¬¼ì„ ì‚­ì œí•˜ì˜€ìŠµë‹ˆë‹¤.');</script>");
+		response.getWriter().append("<script>alert('"+id+"¹ø °Ô½Ã¹°ÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.');</script>");
 		response.getWriter().append("<script>location.replace('./list.jsp');</script>");		
 	}
 }
