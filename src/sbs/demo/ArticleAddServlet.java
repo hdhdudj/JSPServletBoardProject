@@ -18,10 +18,39 @@ public class ArticleAddServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
 		
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
+		
+		if (title == null) {
+			response.getWriter().append("<script> alert('제목을 입력해주세요.'); history.back(); </script>");
+            return;
+		}
+
+		title = title.trim();
+
+		if (title.length() == 0) {
+			response.getWriter().append("<script> alert('제목을 입력해주세요.'); history.back(); </script>");
+            return;
+		}
+
+		title = title.replaceAll("\'", "\\\\'");
+		
+		if (body == null) {
+			response.getWriter().append("<script> alert('내용을 입력해주세요.'); history.back(); </script>");
+            return;
+		}
+
+		body = body.trim();
+
+		if (body.length() == 0) {
+			response.getWriter().append("<script> alert('내용을 입력해주세요.'); history.back(); </script>");
+            return;
+		}
+
+		body = body.replaceAll("\'", "\\\\'");
 		
 		String sql = "INSERT INTO article SET regDate=NOW(), title = '"+title+"', body = '"+body+"';";
 		

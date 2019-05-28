@@ -13,9 +13,14 @@
 %>
 <!DOCTYPE html>
 <html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+$('#chat-box').scrollTop($('#chat-box').prop('scrollHeight'));
+</script>
 <head>
 <style>
+body{
+	background-color:pink;
+}
 .titlelink div {
     display:inline-block;
 }
@@ -26,6 +31,7 @@ table td {
     padding:20px;
 }
 .chat-box{
+	background-color:white;	
     border:2px solid black; 
     display: block;
     width:350px;
@@ -117,8 +123,7 @@ table td {
 <title>게시물 리스트</title>
 </head>
 <script>
-    var objDiv = document.getElementById("chatbox"); 
-    objDiv.scrollTop = objDiv.scrollHeight;
+$('#chat-box').scrollTop($('#chat-box').prop('scrollHeight'));
     
     function sendChatMessage(form) {
         // 양옆 공백제거
@@ -150,7 +155,6 @@ table td {
         form.body.focus();
 
         $('.chat-messages').append('<div>' + writer + ' : ' + body + '</div>');
-        // $('.chat-messages').prepend('<div>' + writer + ' : ' + body + '</div>''); // 위와 같다.
     }
 </script>
 <body>
@@ -207,8 +211,12 @@ table td {
         </form>
     </div>
     <div class="part2">
-        <h1>랜덤 채팅(서버 연결 안돼있어서 형태만 있음^^;)</h1>
+        <h1>랜덤 채팅</h1>
         <div class="chat-box" id="chat-box" style="overflow:auto">
+        <script>
+        var objDiv = document.getElementById("chat-box");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        </script>
             <div class="chat-messages"></div>
         </div>
         <br>

@@ -22,17 +22,47 @@ public class ArticleModifyServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
 		
 		String id = request.getParameter("id");
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
+		
+		if (title == null) {
+			response.getWriter().append("<script> alert('Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+            return;
+		}
+
+		title = title.trim();
+
+		if (title.length() == 0) {
+			response.getWriter().append("<script> alert('Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+            return;
+		}
+
+		title = title.replaceAll("\'", "\\\\'");
+		
+		if (body == null) {
+			response.getWriter().append("<script> alert('³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+            return;
+		}
+
+		body = body.trim();
+
+		if (body.length() == 0) {
+			response.getWriter().append("<script> alert('³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back(); </script>");
+            return;
+		}
+
+		body = body.replaceAll("\'", "\\\\'");
+		
 		String sql = "UPDATE article SET title='"+title+"', body = '"+body+"' WHERE id='"+id+"';";
 		
 		DBUtil.DBLink dbLink = DBUtil.getNewDbLink();
 		dbLink.executeQuery(sql);
 		
-		response.getWriter().append("<script>alert('"+id+"ë²ˆ ê¸€ì´ ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.')</script>");
+		response.getWriter().append("<script>alert('"+id+"¹ø °Ô½Ã¹°ÀÌ ¼öÁ¤µÇ¾ú½À´Ï´Ù.')</script>");
 		response.getWriter().append("<script>location.replace('./detail.jsp?id="+id+"')</script>");
 	}
 
