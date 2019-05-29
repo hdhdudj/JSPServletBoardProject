@@ -1,3 +1,4 @@
+// article 테이블의 특정 row를 삭제하는 쿼리를 올리는 서블릿
 package sbs.demo;
 
 import java.io.IOException;

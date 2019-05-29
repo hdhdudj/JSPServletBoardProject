@@ -1,3 +1,4 @@
+<%-- 게시물의 내용과 댓글이 보이는 상세 페이지 --%>
 <%@page import="sbs.demo.util.DBUtil"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.*"%>

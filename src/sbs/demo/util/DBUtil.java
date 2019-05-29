@@ -1,3 +1,4 @@
+// sql과의 연결을 처리하는 서블릿
 package sbs.demo.util;
 
 import java.sql.Connection;

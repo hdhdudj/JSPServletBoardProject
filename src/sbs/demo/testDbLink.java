@@ -1,3 +1,4 @@
+// DBUtil.java의 기능이 제대로 작동하는지 확인하는 테스트 서블릿
 package sbs.demo;
 
 import java.io.IOException;

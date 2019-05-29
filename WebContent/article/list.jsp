@@ -1,3 +1,4 @@
+<%-- 게시물 제목(목록)을 표시하는 페이지. 제목을 클릭하면 상세 페이지로 이동. 채팅창(서버 연결X)도 달려 있음. --%> 
 <%@page import="sbs.demo.util.DBUtil"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.*"%>
@@ -237,10 +238,6 @@ table td {
 	<div class="part2">
 		<h1>랜덤 채팅</h1>
 		<div class="chat-box" id="chat-box" style="overflow: auto">
-			<script>
-				var objDiv = document.getElementById("chat-box");
-				objDiv.scrollTop = objDiv.scrollHeight;
-			</script>
 			<div class="chat-messages"></div>
 		</div>
 		<br>

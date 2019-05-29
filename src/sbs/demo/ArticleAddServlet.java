@@ -1,3 +1,4 @@
+// article 테이블에 게시물을 추가하는 쿼리를 올리는 서블릿
 package sbs.demo;
 
 import java.io.IOException;
